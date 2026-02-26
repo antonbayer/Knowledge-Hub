@@ -5,9 +5,9 @@ Markdown-based knowledge and documentation hub. Code lives elsewhere, linked int
 
 ## Structure
 - Junction folders mirror the directory structure under `SOURCES` (from `.env`)
-- `.env` — local config: SOURCES, TEMPLATES, ASSETS (not in Git)
-- `.env.example` — template for `.env`
-- `vault.js` — CLI: `node vault.js pull|add|status`
+- `.env` – local config: SOURCES, TEMPLATES, ASSETS (not in Git)
+- `.env.example` – template for `.env`
+- `vault.js` – CLI: `node vault.js pull|add|status`
 
 Templates and assets (paths from `.env`):
 - `TEMPLATES` → templates, Marp themes, Pandoc reference DOCX

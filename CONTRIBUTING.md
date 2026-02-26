@@ -17,7 +17,7 @@ Please create an [issue](../../issues) with:
 
 ### Guidelines
 
-- `vault.js` has zero external dependencies — please keep it that way
+- `vault.js` has zero external dependencies – please keep it that way
 - Test before submitting: `node vault.js --help`, `node vault.js status`
 
 ## Local Setup

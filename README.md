@@ -1,5 +1,7 @@
 # Knowledge Vault
 
+One folder. All your docs. Zero duplicates.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/Node.js-%E2%89%A518-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](README.md)
@@ -7,24 +9,34 @@
 [![Tests](https://github.com/antonbayer/Knowledge-Hub/actions/workflows/test.yml/badge.svg)](https://github.com/antonbayer/Knowledge-Hub/actions/workflows/test.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+**What I wanted – and achieved with a single JS file:**
+
+| What you say | What happens |
+|---|---|
+| "Build me a CV as a Word document with an overview of all my projects." | Scans all repos, collects project descriptions, exports via Pandoc |
+| "Create a presentation summarizing what's open across my customer projects." | Gathers status from docs, builds a Marp deck |
+| "Give me a status overview – what's done, what's still in progress?" | Searches all linked markdown files, compiles a report |
+| "What changed across my projects this week?" | Runs git log across all repos, summarizes the diff |
+| "New customer AcmeCorp – set up the structure and create a kickoff deck." | Scaffolds folders, creates docs from templates, builds a presentation |
+
 ## The Problem
 
-As a developer or freelancer you accumulate dozens of repos — each with its own docs, notes, and assets. Finding that one decision record or meeting note means remembering which repo it lives in, cloning it, and hoping the docs are up to date. Documentation is scattered, searching is painful, and maintaining duplicates is a dead end.
+As a developer or freelancer you accumulate dozens of repos – each with its own docs, notes, and assets. Finding that one decision record or meeting note means remembering which repo it lives in, cloning it, and hoping the docs are up to date. Documentation is scattered, searching is painful, and maintaining duplicates is a dead end.
 
 ## The Idea
 
-**Knowledge Vault** turns a single folder into a central documentation hub. Instead of copying files, it **links** your existing repos into the vault using directory links (junctions on Windows, symlinks on macOS/Linux). Every linked repo's content becomes instantly visible, searchable, and editable — with Obsidian, VS Code, or any markdown tool.
+**Knowledge Vault** turns a single folder into a central documentation hub. Instead of copying files, it **links** your existing repos into the vault using directory links (junctions on Windows, symlinks on macOS/Linux). Every linked repo's content becomes instantly visible, searchable, and editable – with Obsidian, VS Code, or any markdown tool.
 
 A small Node.js CLI (`vault.js`) does the heavy lifting: it discovers all Git repos under your configured source paths, pulls them, and creates the links automatically.
 
-On top of that, **Claude Code** manages the vault: search across all docs, scaffold new files from templates, export polished Word documents via Pandoc, and generate presentations via Marp — all through chat.
+On top of that, **Claude Code** manages the vault: search across all docs, scaffold new files from templates, export polished Word documents via Pandoc, and generate presentations via Marp – all through chat.
 
-**The result:** One place to search, browse, and edit all your documentation — while every file stays in its original repo.
+**The result:** One place to search, browse, and edit all your documentation – while every file stays in its original repo.
 
 ## Prerequisites
 
 - **Git**
-- **Node.js** (for vault.js — automatically installs missing tools)
+- **Node.js** (for vault.js – automatically installs missing tools)
 - **Windows 10/11** uses NTFS junctions, **macOS/Linux** uses symlinks
 
 ## Setup
@@ -74,7 +86,7 @@ Or use the CLI directly:
 claude
 ```
 
-Claude Code can manage the vault, search docs, create brainstorms, trigger exports, and run `vault.js` commands — all via chat.
+Or let Claude Code handle it via chat.
 
 ## vault.js
 
@@ -87,7 +99,7 @@ Claude Code can manage the vault, search docs, create brainstorms, trigger expor
 
 ### How does vault.js find repos?
 
-`vault.js` reads `SOURCES` from `.env` and searches each path recursively. When a `.git` folder is found, that's a repo — recursion stops there. For each repo, a junction is created in the vault (path = relative to source directory).
+`vault.js` reads `SOURCES` from `.env` and searches each path recursively. When a `.git` folder is found, that's a repo – recursion stops there. For each repo, a junction is created in the vault (path = relative to source directory).
 
 ### Path derivation from URL (add)
 
@@ -131,7 +143,7 @@ pandoc input.md -o output.docx --reference-doc=$TEMPLATES/reference.docx
 
 ## How Linking Works
 
-On **Windows**, vault.js uses NTFS junctions (`mklink /J`) — no Developer Mode required. On **macOS/Linux**, it uses symlinks (`ln -s`).
+On **Windows**, vault.js uses NTFS junctions (`mklink /J`) – no Developer Mode required. On **macOS/Linux**, it uses symlinks (`ln -s`).
 
 - Junction/symlink contents are **excluded** from the vault repo via `.gitignore`
 - Changes go directly into the original repo
@@ -142,4 +154,4 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT – see [LICENSE](LICENSE).
