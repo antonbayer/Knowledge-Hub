@@ -1,4 +1,4 @@
-# Knowledge Vault
+# Knowledge Hub
 
 One folder. All your docs. Zero duplicates.
 
@@ -25,7 +25,7 @@ As a developer or freelancer you accumulate dozens of repos – each with its ow
 
 ## The Idea
 
-**Knowledge Vault** turns a single folder into a central documentation hub. Instead of copying files, it **links** your existing repos into the vault using directory links (junctions on Windows, symlinks on macOS/Linux). Every linked repo's content becomes instantly visible, searchable, and editable – with Obsidian, VS Code, or any markdown tool.
+**Knowledge Hub** turns a single folder into a central documentation hub. Instead of copying files, it **links** your existing repos into the vault using directory links (junctions on Windows, symlinks on macOS/Linux). Every linked repo's content becomes instantly visible, searchable, and editable – with Obsidian, VS Code, or any markdown tool.
 
 A small Node.js CLI (`vault.js`) does the heavy lifting: it discovers all Git repos under your configured source paths, pulls them, and creates the links automatically.
 

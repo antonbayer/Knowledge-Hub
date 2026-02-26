@@ -1,4 +1,4 @@
-# Knowledge Vault
+# Knowledge Hub
 
 ## What is this?
 Markdown-based knowledge and documentation hub. Code lives elsewhere, linked into the vault via **Junctions** (`mklink /J`).
