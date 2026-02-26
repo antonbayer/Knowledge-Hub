@@ -17,6 +17,8 @@ As a developer or freelancer you accumulate dozens of repos — each with its ow
 
 A small Node.js CLI (`vault.js`) does the heavy lifting: it discovers all Git repos under your configured source paths, pulls them, and creates the links automatically.
 
+On top of that, **Claude Code** manages the vault: search across all docs, scaffold new files from templates, export polished Word documents via Pandoc, and generate presentations via Marp — all through chat.
+
 **The result:** One place to search, browse, and edit all your documentation — while every file stays in its original repo.
 
 ## Prerequisites
@@ -44,14 +46,14 @@ cp .env.example .env
 ```bash
 # .env
 SOURCES=C:\path\to\repos
-TEMPLATES=path/to/templates
+TEMPLATES=templates
 ASSETS=path/to/assets
 ```
 
 | Variable | Description |
 |----------|-------------|
 | `SOURCES` | Where your Git repos live (comma-separated for multiple) |
-| `TEMPLATES` | Path to templates, Marp themes, Pandoc reference DOCX (relative to vault) |
+| `TEMPLATES` | Marp themes, Pandoc reference DOCX, markdown templates (default: `templates/`) |
 | `ASSETS` | Path to images, logos, files (relative to vault) |
 
 ### 3. Pull repos + create junctions
@@ -97,9 +99,23 @@ Cloned into the first SOURCES directory + project path.
 Junction in vault = project path.
 ```
 
+## Templates
+
+The vault ships with generic templates in `templates/`:
+
+| File | Purpose |
+|------|---------|
+| `theme.css` | Marp presentation theme (Inter font, clean blue accent) |
+| `reference.docx` | Pandoc reference document for Word export |
+| `meeting.md` | Meeting notes with agenda, decisions, action items |
+| `brainstorm.md` | Brainstorming with context, ideas, pros/cons |
+| `customer.md` | Customer/project overview |
+
+Override `TEMPLATES` in `.env` to point to your own templates instead.
+
 ## Document Export
 
-Documents are written in markdown and exported. Template and asset paths are configured in `.env`.
+Documents are written in markdown and exported using the templates above.
 
 ### Presentations (Marp)
 
@@ -112,8 +128,6 @@ marp file.md --theme-set $TEMPLATES/theme.css -o output.pdf --allow-local-files
 ```bash
 pandoc input.md -o output.docx --reference-doc=$TEMPLATES/reference.docx
 ```
-
-Available themes and templates: see README in the templates folder.
 
 ## How Linking Works
 

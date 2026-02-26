@@ -1,0 +1,138 @@
+/* @theme default-vault */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+:root {
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --blue-dark: #1d4ed8;
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #64748b;
+  --surface: #f1f5f9;
+}
+
+section {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 60px 80px;
+}
+
+h1 {
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 2.5em;
+  border-bottom: 3px solid var(--blue);
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+h3 {
+  color: var(--blue-dark);
+  font-weight: 600;
+}
+
+strong {
+  color: var(--blue);
+}
+
+a {
+  color: var(--blue);
+}
+
+code {
+  background: var(--surface);
+  color: var(--blue);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--surface);
+  border-left: 4px solid var(--blue);
+}
+
+blockquote {
+  border-left: 4px solid var(--blue);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+table th {
+  background: var(--blue);
+  color: white;
+}
+
+/* Lead slide */
+section.lead {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.lead h1 {
+  border-bottom: none;
+  font-size: 3.5em;
+}
+
+section.lead h2 {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* Divider slide */
+section.divider {
+  background: var(--blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.divider h1 {
+  color: white;
+  border-bottom: none;
+  font-size: 3em;
+}
+
+/* About-me slide */
+section.about {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3em;
+  align-items: start;
+  padding-top: 80px;
+}
+
+section.about img {
+  border-radius: 50%;
+  border: 3px solid var(--blue);
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Header & Footer */
+header {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.7em;
+}
+
+footer {
+  color: var(--text-muted);
+  font-size: 0.6em;
+}
+
+section::after {
+  color: var(--blue-light);
+  font-size: 0.7em;
+}

@@ -17,3 +17,5 @@
 !vault.test.js
 !SECURITY.md
 !.gitlab-ci.yml
+!templates
+!templates/**
