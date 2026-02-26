@@ -7,13 +7,17 @@
 [![Tests](https://github.com/antonbayer/Knowledge-Hub/actions/workflows/test.yml/badge.svg)](https://github.com/antonbayer/Knowledge-Hub/actions/workflows/test.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A markdown-based knowledge and documentation hub. Code repositories live elsewhere. Their contents are automatically linked into the vault via **directory links** (junctions on Windows, symlinks on macOS/Linux) — readable, searchable, and editable with any markdown-capable tool.
+## The Problem
 
-## Concept
+As a developer or freelancer you accumulate dozens of repos — each with its own docs, notes, and assets. Finding that one decision record or meeting note means remembering which repo it lives in, cloning it, and hoping the docs are up to date. Documentation is scattered, searching is painful, and maintaining duplicates is a dead end.
 
-Projects live in their own Git repos. Their contents should be centrally visible without maintaining duplicates.
+## The Idea
 
-**Solution:** Directory links (junctions on Windows, symlinks on macOS/Linux) connect repos into the vault. A Node.js script (`vault.js`) recursively finds all Git repos under configured source paths, pulls them, and creates links.
+**Knowledge Vault** turns a single folder into a central documentation hub. Instead of copying files, it **links** your existing repos into the vault using directory links (junctions on Windows, symlinks on macOS/Linux). Every linked repo's content becomes instantly visible, searchable, and editable — with Obsidian, VS Code, or any markdown tool.
+
+A small Node.js CLI (`vault.js`) does the heavy lifting: it discovers all Git repos under your configured source paths, pulls them, and creates the links automatically.
+
+**The result:** One place to search, browse, and edit all your documentation — while every file stays in its original repo.
 
 ## Prerequisites
 
