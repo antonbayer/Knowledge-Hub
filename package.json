@@ -1,0 +1,38 @@
+{
+  "name": "knowledge-vault",
+  "version": "1.0.0",
+  "description": "Markdown-based knowledge hub that auto-links Git repos via junctions (Windows) or symlinks (macOS/Linux)",
+  "main": "vault.js",
+  "bin": {
+    "vault": "./vault.js"
+  },
+  "scripts": {
+    "test": "node --test vault.test.js",
+    "pull": "node vault.js pull",
+    "add": "node vault.js add",
+    "status": "node vault.js status"
+  },
+  "keywords": [
+    "knowledge-base",
+    "vault",
+    "obsidian",
+    "markdown",
+    "documentation",
+    "junction",
+    "symlink",
+    "cross-platform",
+    "windows",
+    "macos",
+    "linux",
+    "git"
+  ],
+  "author": "Anton Bayer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonbayer/Knowledge-Hub.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

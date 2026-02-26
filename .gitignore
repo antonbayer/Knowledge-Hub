@@ -1,0 +1,19 @@
+# Alles ignorieren
+*
+
+# Vault-Dateien explizit tracken
+!.gitignore
+!.env.example
+!vault.js
+!CLAUDE.md
+!README.md
+!LICENSE
+!package.json
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!.editorconfig
+!.github
+!.github/**
+!vault.test.js
+!SECURITY.md
+!.gitlab-ci.yml
